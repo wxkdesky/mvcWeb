@@ -4,7 +4,8 @@
 }
 <p id="testP"></p>
 
-<div class="jumbotron">
+
+<div class="jumbotron" >
     <a href="http://www.sim.ac.cn/" style="float:right;vertical-align:central">
         <img src="~/Images/simit.jpg" alt="图片无法显示" id="imgSIMIT" style="max-width: 100%;text-align:center;margin-top:50px" />
     </a>
@@ -12,8 +13,7 @@
     <p class="lead">本页面将会向您展示手环佩戴者的位置信息</p>
     <p><a href="http://www.baidu.com" class="btn btn-primary btn-lg">百度搜索 &raquo;</a></p>
 </div>
-
-<div id="FloatDiv" class="leftShow">
+<div id="FloatDiv" class="leftShow" >
     <style>
         label {
             float: left;
@@ -29,7 +29,7 @@
         }
     </style>
     <h3 id="test">请选择标签<br /></h3>
-    <form action="" method="post" name="form1">
+    <form id="f1" action="" method="post" name="form1">
         <label><input name="Tag" type="checkbox" value="tag1" onclick="doAction1()">Tag1</label>
         <label><input name="Tag" type="checkbox" value="tag2" onclick="doAction2()">Tag2</label>
         <label><input name="Tag" type="checkbox" value="tag3" onclick="doAction3()">Tag3</label>
@@ -41,18 +41,37 @@
         <label><input name="Tag" type="checkbox" value="tag9" onclick="doAction9()">Tag9</label>
         <label><input name="Tag" type="checkbox" value="tag10" onclick="doAction10()">Tag10</label>
     </form>
-    <img class="right" src="~/Images/right.png" alt="显示" />
+    <a id="imgHide" href="javascript:void(0)" onclick="hideDiv()" > <img class="right" src="~/Images/left.png" alt="隐藏" style="margin-top:100px;margin-right:-22%" /></a>
+    <br />
+    <a id="imgShow" href="javascript:void(0)" onclick="showDiv()" hidden="hidden"><img class="right" src="~/Images/right.png" alt="显示" style="margin-top:100px;margin-left:-70%" /></a>
 </div>
+
 <script type="text/javascript">
-    function move()
+    //function move()
+    //{
+    //    var mtop = document.body.clientHeight;
+    //    var d_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    //    var d_width = document.body.clientWidth;
+    //    document.getElementById("FloatDiv").style.top = d_top + 0.1 * mtop + 'px';
+    //    setTimeout("move();", 100);
+    //}
+    //move();
+    function hideDiv()
     {
-        var mtop = document.body.clientHeight;
-        var d_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        var d_width = document.body.clientWidth;
-        document.getElementById("FloatDiv").style.top = d_top + 0.1 * mtop + 'px';
-        setTimeout("move();", 100);
+        document.getElementById("f1").hidden = true;
+        document.getElementById("test").hidden = true;
+        document.getElementById("FloatDiv").style.width = 25 + 'px';
+        document.getElementById("imgHide").hidden = true;
+        document.getElementById("imgShow").hidden = false;
     }
-    move();
+    function showDiv()
+    {
+        document.getElementById("FloatDiv").style.width = 200+'px';
+        document.getElementById("f1").hidden = false;
+        document.getElementById("test").hidden = false;
+        document.getElementById("imgHide").hidden = false;
+        document.getElementById("imgShow").hidden = true;
+    }
 </script>
 <div class="row" style="text-align:center">
         <canvas id="myCanvas" width="1080" height="768" style="max-width:100%" >地图1无法加载</canvas>

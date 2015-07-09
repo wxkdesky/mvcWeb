@@ -4,19 +4,18 @@
     width:200px;
     height:400px;
     max-height:100%;
+    text-align:center;
     margin-top:10%;
-    margin-bottom:15%;
-    margin-left:-5%;
     border-right:activeborder 1px solid;
     border-top:activeborder 1px solid;
     border-left:activeborder 1px solid;
     border-bottom:activeborder 1px solid;
     /*margin-left:-230px;*/
-    background:-moz-linear-gradient(left,#19f59b,#7ac0da);
-    background:-webkit-linear-gradient(left,#19f59b,#7ac0da);
-    background:-ms-linear-gradient(left,#19f59b,#7ac0da);
-    background:-o-linear-gradient(left,#19f59b,#7ac0da);
-    background:linear-gradient(left,#19f59b,#7ac0da);
+    background:-moz-linear-gradient(left,#E0E0E0,#F0F0F0);
+    background:-webkit-linear-gradient(left,#E0E0E0,#F0F0F0);
+    background:-ms-linear-gradient(left,#E0E0E0,#F0F0F0);
+    background:-o-linear-gradient(left,#E0E0E0,#F0F0F0);
+    background:linear-gradient(left,#E0E0E0,#F0F0F0);
 }
 .leftShowTranslate{
     transform:translateX()
