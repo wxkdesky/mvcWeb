@@ -140,7 +140,7 @@
             type: "POST", url: "/Home/connect", data: {}, success: function (data) {
                 resolve(data, finalData);
                 //test
-               document.getElementById("testP").innerHTML += finalData;
+              // document.getElementById("testP").innerHTML += finalData;
                 if (drawImageCondition == 1) {
                     cxt.drawImage(img, 0, 0, c.width, c.height);
                     for (var single in finalData) {
