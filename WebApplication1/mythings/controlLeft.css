@@ -1,7 +1,7 @@
 ﻿div.leftShow{
     position:fixed;
     float:left;
-    width:200px;
+    width:220px;
     height:400px;
     max-height:100%;
     text-align:center;
@@ -17,6 +17,19 @@
     background:-o-linear-gradient(left,#E0E0E0,#F0F0F0);
     background:linear-gradient(left,#E0E0E0,#F0F0F0);
 }
-.leftShowTranslate{
-    transform:translateX()
+.leftHide{
+    position:fixed;
+    float:left;
+    background:#FF8000;
+    border-radius:15px 15px 15px 15px;
+    color:white;
+    margin-left:-30px;
+    height:30px;
+    width:30px;
+    margin-top:20%;
+}
+.setBackgroung{
+    background-color:gray;
+    background-image:url(/Images/img7.jpg);
+    background-repeat:repeat-x;
 }

@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body style="padding-left:0px;padding-right:0px;">
+<body >
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -24,7 +24,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("主页", "Index", "Home")</li>*@
+                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
                     <li>@Html.ActionLink("关于", "About", "Home")</li>
                     <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
                 </ul>
@@ -32,8 +32,10 @@
             </div>
         </div>
     </div>
-    <div class="container body-content" ">
-        @RenderBody()
+    <div  class="container body-content" style="margin-left:20px;margin-right:10px">
+        @*<div id="backDiv" class="container body-content" style="margin-left:0px;">*@
+            @RenderBody()
+        @*</div>*@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - 版权归中科院微系统与信息技术研究所所有</p>

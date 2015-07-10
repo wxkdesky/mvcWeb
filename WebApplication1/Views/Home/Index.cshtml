@@ -5,45 +5,54 @@
 <p id="testP"></p>
 
 
-<div class="jumbotron" >
+@*<div class="jumbotron" >
     <a href="http://www.sim.ac.cn/" style="float:right;vertical-align:central">
         <img src="~/Images/simit.jpg" alt="图片无法显示" id="imgSIMIT" style="max-width: 100%;text-align:center;margin-top:50px" />
     </a>
     <h1>欢迎</h1>
     <p class="lead">本页面将会向您展示手环佩戴者的位置信息</p>
     <p><a href="http://www.baidu.com" class="btn btn-primary btn-lg">百度搜索 &raquo;</a></p>
-</div>
-<div id="FloatDiv" class="leftShow" >
-    <style>
-        label {
-            float: left;
-        }
+</div>*@
+<div id="backDiv" class="container body-content" style="margin-top:5px;margin-left:0px">
+    <a href="javascript:void(0)" onclick="showDiv()">
+        <div id="FloatDiv" class="leftHide">
+            <style>
+                label {
+                    float: left;
+                }
 
-        form {
-            text-align: center;
-        }
+                form {
+                    text-align: center;
+                }
 
-        .right {
-            text-align: right;
-            vertical-align: central;
-        }
-    </style>
-    <h3 id="test">请选择标签<br /></h3>
-    <form id="f1" action="" method="post" name="form1">
-        <label><input name="Tag" type="checkbox" value="tag1" onclick="doAction1()">Tag1</label>
-        <label><input name="Tag" type="checkbox" value="tag2" onclick="doAction2()">Tag2</label>
-        <label><input name="Tag" type="checkbox" value="tag3" onclick="doAction3()">Tag3</label>
-        <label><input name="Tag" type="checkbox" value="tag4" onclick="doAction4()">Tag4</label>
-        <label><input name="Tag" type="checkbox" value="tag5" onclick="doAction5()">Tag5</label>
-        <label><input name="Tag" type="checkbox" value="tag6" onclick="doAction6()">Tag6</label>
-        <label><input name="Tag" type="checkbox" value="tag7" onclick="doAction7()">Tag7</label>
-        <label><input name="Tag" type="checkbox" value="tag8" onclick="doAction8()">Tag8</label>
-        <label><input name="Tag" type="checkbox" value="tag9" onclick="doAction9()">Tag9</label>
-        <label><input name="Tag" type="checkbox" value="tag10" onclick="doAction10()">Tag10</label>
-    </form>
-    <a id="imgHide" href="javascript:void(0)" onclick="hideDiv()" > <img class="right" src="~/Images/left.png" alt="隐藏" style="margin-top:100px;margin-right:-22%" /></a>
-    <br />
-    <a id="imgShow" href="javascript:void(0)" onclick="showDiv()" hidden="hidden"><img class="right" src="~/Images/right.png" alt="显示" style="margin-top:100px;margin-left:-70%" /></a>
+                .right {
+                    text-align: right;
+                    vertical-align: central;
+                }
+            </style>
+            <h5 id="tagShow" style="margin-top:10px">TAG</h5>
+            <h3 id="test" style="text-align:center">请选择标签<br /></h3>
+            <form id="f1" action="" method="post" name="form1">
+                <label><input name="Tag" type="checkbox" value="tag1" onclick="doAction1()">Tag1</label>
+                <label><input name="Tag" type="checkbox" value="tag2" onclick="doAction2()">Tag2</label>
+                <label><input name="Tag" type="checkbox" value="tag3" onclick="doAction3()">Tag3</label>
+                <label><input name="Tag" type="checkbox" value="tag4" onclick="doAction4()">Tag4</label>
+                <label><input name="Tag" type="checkbox" value="tag5" onclick="doAction5()">Tag5</label>
+                <label><input name="Tag" type="checkbox" value="tag6" onclick="doAction6()">Tag6</label>
+                <label><input name="Tag" type="checkbox" value="tag7" onclick="doAction7()">Tag7</label>
+                <label><input name="Tag" type="checkbox" value="tag8" onclick="doAction8()">Tag8</label>
+                <label><input name="Tag" type="checkbox" value="tag9" onclick="doAction9()">Tag9</label>
+                <label><input name="Tag" type="checkbox" value="tag10" onclick="doAction10()">Tag10</label>
+            </form>
+            <a id="imgHide" href="javascript:void(0)" onclick="hideDiv()" > <img class="right" src="~/Images/left.png" alt="隐藏" style="margin-top:100px;margin-right: -44px" /></a>
+            <br />
+            @*<a id="imgShow" href="javascript:void(0)" onclick="showDiv()" hidden="hidden"><img class="right" src="~/Images/right.png" alt="显示" style="margin-top:100px;margin-left:-70%" /></a>*@
+        </div>
+    </a>
+    <div class="container body-content" style="margin-top:5px;margin-left:0px">
+        <canvas id="myCanvas" width="1080" height="768" style="max-width:100%">地图1无法加载</canvas>
+        <script type="text/javascript" src="~/mythings/clickAction.js"></script>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -56,78 +65,95 @@
     //    setTimeout("move();", 100);
     //}
     //move();
-    function hideDiv()
-    {
+    var state = 0;//隐藏状态
+    function hideDiv() {
+        document.getElementById("tagShow").hidden = false;
         document.getElementById("f1").hidden = true;
         document.getElementById("test").hidden = true;
-        document.getElementById("FloatDiv").style.width = 25 + 'px';
+        // document.getElementById("FloatDiv").style.width = 25 + 'px';
         document.getElementById("imgHide").hidden = true;
-        document.getElementById("imgShow").hidden = false;
+        // document.getElementById("imgShow").hidden = false;
+        //$("#FloatDiv").removeClass("leftHide");
+        //$("#FloatDiv").addClass("leftHide");
+        document.getElementById("FloatDiv").style.width = 30 + 'px';
+        document.getElementById("FloatDiv").style.height = 30 + 'px';
+        document.getElementById("FloatDiv").style.marginTop = "20%";
+        document.getElementById("FloatDiv").style.marginLeft = "-25px";
+        document.getElementById("FloatDiv").style.borderRadius = "15px 15px 15px 15px";
+        state = 0;
     }
-    function showDiv()
-    {
-        document.getElementById("FloatDiv").style.width = 200+'px';
-        document.getElementById("f1").hidden = false;
-        document.getElementById("test").hidden = false;
-        document.getElementById("imgHide").hidden = false;
-        document.getElementById("imgShow").hidden = true;
+    function showDiv() {
+        if (state == 0) {
+            document.getElementById("tagShow").hidden = true;
+            document.getElementById("FloatDiv").style.width = 220 + 'px';
+            document.getElementById("FloatDiv").style.height = 400 + 'px';
+            document.getElementById("f1").hidden = false;
+            document.getElementById("test").hidden = false;
+            document.getElementById("imgHide").hidden = false;
+            state = 1;
+        }
+       // document.getElementById("imgShow").hidden = true;
     }
 </script>
-<div class="row" style="text-align:center">
-        <canvas id="myCanvas" width="1080" height="768" style="max-width:100%" >地图1无法加载</canvas>
-        <script type="text/javascript" src="~/mythings/clickAction.js"></script>
-    </div>
+
 <script type="text/javascript" src="~/mythings/canvasRole.js"></script>
 <script type="text/javascript" src="~/mythings/reg.js"></script>
 <script>
-    var image = new Image();
-    var imgSIMIT = document.getElementById("imgSIMIT");
-    image.src = imgSIMIT.src;
-    var realWidth = image.width;
+    //var image = new Image();
+    //var imgSIMIT = document.getElementById("imgSIMIT");
+    //image.src = imgSIMIT.src;
+    //var realWidth = image.width;
     function drawimage()
     {
         cxt.drawImage(img, 0, 0, c.width, c.height); cxt.strokeStyle = "#FF00FF"; cxt.lineWidth = 5; cxt.strokeRect(0, 0, c.width, c.height);
     }
 </script>
 <script type="text/javascript">
-    window.onresize = function change() {
-        var imgSIMIT = document.getElementById("imgSIMIT");
-        var xwidth = document.body.clientWidth;
-        imgSIMIT.width = 3 / 4 * xwidth;
-        if (imgSIMIT.width <= realWidth)
-            imgSIMIT.width = 5 / 6 * xwidth;
-        else
-            imgSIMIT.width = realWidth;
-    }
+    //window.onresize = function change() {
+    //    var imgSIMIT = document.getElementById("imgSIMIT");
+    //    var xwidth = document.body.clientWidth;
+    //    imgSIMIT.width = 3 / 4 * xwidth;
+    //    if (imgSIMIT.width <= realWidth)
+    //        imgSIMIT.width = 5 / 6 * xwidth;
+    //    else
+    //        imgSIMIT.width = realWidth;
+    //}
 </script>
 <script type="text/javascript">
-    window.onload = setInterval(test, 1000);
-    function test() {
-        drawImageCondition = drawImageCondition + 1;
-        if (drawImageCondition == 1)
-            drawimage();
-        if (drawImageCondition == 50)
-            drawImageCondition = 2;
-        var finalData = new Array();
-        $.ajax({
-            type: "POST", url: "/Home/connect", data: {}, success: function (data) {
-                resolve(data, finalData);
-                //test
-               // document.getElementById("testP").innerHTML += finalData;
-                if (drawImageCondition == 1) {
-                    cxt.drawImage(img, 0, 0, c.width, c.height);
-                    for (var single in finalData) {
-                        drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
-                    }
-                }
-                else if (drawImageCondition != 1) {
-                    cxt.drawImage(img, 0, 0, c.width, c.height);
-                    for (var single = 0; single < tagStates.length; single++) {//
-                        if (tagStates[single] == 1)
-                            drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
-                    }
-                }
-            }, error: function (msg) { alert(msg) }
-        });
+    window.onload = function () {
+        $("#backDiv").addClass("setBackgroung");
+        //document.getElementById("backDiv").style.backgroundColor = "#FFCC80";
+        //document.getElementById("backDiv").style.add;//backgroundImage = "url(/Images/img7.jpg) repeat-x";
+        hideDiv();
+        drawimage();
     }
+        //setInterval(test, 1000);
+    //function test() {
+    //    drawImageCondition = drawImageCondition + 1;
+    //    if (drawImageCondition == 1)
+    //        drawimage();
+    //    if (drawImageCondition == 50)
+    //        drawImageCondition = 2;
+    //    var finalData = new Array();
+    //    $.ajax({
+    //        type: "POST", url: "/Home/connect", data: {}, success: function (data) {
+    //            resolve(data, finalData);
+    //            //test
+    //           // document.getElementById("testP").innerHTML += finalData;
+    //            if (drawImageCondition == 1) {
+    //                cxt.drawImage(img, 0, 0, c.width, c.height);
+    //                for (var single in finalData) {
+    //                    drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
+    //                }
+    //            }
+    //            else if (drawImageCondition != 1) {
+    //                cxt.drawImage(img, 0, 0, c.width, c.height);
+    //                for (var single = 0; single < tagStates.length; single++) {//
+    //                    if (tagStates[single] == 1)
+    //                        drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
+    //                }
+    //            }
+    //        }, error: function (msg) { alert(msg) }
+    //    });
+    //}
 </script>
