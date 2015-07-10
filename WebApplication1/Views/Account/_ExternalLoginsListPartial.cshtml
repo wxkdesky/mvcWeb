@@ -1,18 +1,23 @@
 ﻿@model WebApplication1.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<h4>使用其他服务登录。</h4>
+<h4><b>欢迎来到定位查看系统</b></h4>
 <hr />
 @{
-    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
-    if (loginProviders.Count() == 0) {
+    //var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    //if (loginProviders.Count() == 0) {
         <div>
             <p>
-                没有配置外部身份验证服务。有关设置此 ASP.NET 应用程序
-                以支持通过外部服务登录的详细信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkId=403804">此文</a>。
+                在您登陆之后，可以选择相应的项目进行展示
+            </p>
+            <p>
+                如果遇到任何问题，请联系<a href="http://www.sim.ac.cn/">我们</a>。
+            </p>
+            <p style="margin-top:15%">
+                <img src="~/Images/simit.jpg" alt="中科院微系统与信息技术研究所" style="max-width:100%;margin-bottom:5px" />
             </p>
         </div>
-    }
+    @*}
     else {
         using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
             @Html.AntiForgeryToken()
@@ -24,5 +29,5 @@
                 </p>
             </div>
         }
-    }
+    }*@
 }
