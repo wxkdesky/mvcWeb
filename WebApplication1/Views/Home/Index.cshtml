@@ -121,39 +121,40 @@
 </script>
 <script type="text/javascript">
     window.onload = function () {
-        $("#backDiv").addClass("setBackgroung");
+        //$("#backDiv").addClass("setBackgroung");
         //document.getElementById("backDiv").style.backgroundColor = "#FFCC80";
         //document.getElementById("backDiv").style.add;//backgroundImage = "url(/Images/img7.jpg) repeat-x";
         hideDiv();
-        drawimage();
+        setInterval(test, 1000);
+       // drawimage();
     }
         //setInterval(test, 1000);
-    //function test() {
-    //    drawImageCondition = drawImageCondition + 1;
-    //    if (drawImageCondition == 1)
-    //        drawimage();
-    //    if (drawImageCondition == 50)
-    //        drawImageCondition = 2;
-    //    var finalData = new Array();
-    //    $.ajax({
-    //        type: "POST", url: "/Home/connect", data: {}, success: function (data) {
-    //            resolve(data, finalData);
-    //            //test
-    //           // document.getElementById("testP").innerHTML += finalData;
-    //            if (drawImageCondition == 1) {
-    //                cxt.drawImage(img, 0, 0, c.width, c.height);
-    //                for (var single in finalData) {
-    //                    drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
-    //                }
-    //            }
-    //            else if (drawImageCondition != 1) {
-    //                cxt.drawImage(img, 0, 0, c.width, c.height);
-    //                for (var single = 0; single < tagStates.length; single++) {//
-    //                    if (tagStates[single] == 1)
-    //                        drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
-    //                }
-    //            }
-    //        }, error: function (msg) { alert(msg) }
-    //    });
-    //}
+    function test() {
+        drawImageCondition = drawImageCondition + 1;
+        if (drawImageCondition == 1)
+            drawimage();
+        if (drawImageCondition == 50)
+            drawImageCondition = 2;
+        var finalData = new Array();
+        $.ajax({
+            type: "POST", url: "/Home/connect", data: {}, success: function (data) {
+                resolve(data, finalData);
+                //test
+               document.getElementById("testP").innerHTML += finalData;
+                if (drawImageCondition == 1) {
+                    cxt.drawImage(img, 0, 0, c.width, c.height);
+                    for (var single in finalData) {
+                        drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
+                    }
+                }
+                else if (drawImageCondition != 1) {
+                    cxt.drawImage(img, 0, 0, c.width, c.height);
+                    for (var single = 0; single < tagStates.length; single++) {//
+                        if (tagStates[single] == 1)
+                            drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
+                    }
+                }
+            }, error: function (msg) { alert(msg) }
+        });
+    }
 </script>
