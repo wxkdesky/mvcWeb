@@ -1,5 +1,6 @@
 ﻿var t = document.getElementsByName("Tag");
 var tagFirstClick = 0;//是否是第一次点击tag标签
+//确保只有选中的tag被显示
 function doAction1() {
     var se = 0;
     tagFirstClick = tagFirstClick + 1;
@@ -56,25 +57,33 @@ function doAction3() {
 //---------------------------------------------
 function doAction4() {
     var se = 3;
+    tagFirstClick = tagFirstClick + 1;
+    if (tagFirstClick == 1) {
+        for (var single = 0; single < tagStates.length; single++) {
+            tagStates[single] = 0;
+        }
+    }
     if (t[se].checked == true) {
-        // alert("你选择的标签是tag" + (i + 1));
-        haha(se + 1, true);
+        tagStates[se] = 1;
     }
     else {
-        // alert("你没有选择标签tag" + (i + 1));
-        haha(se + 1, false);
+        tagStates[se] = 0;
     }
 }
 //--------------------------------------
 function doAction5() {
     var se = 4;
+    tagFirstClick = tagFirstClick + 1;
+    if (tagFirstClick == 1) {
+        for (var single = 0; single < tagStates.length; single++) {
+            tagStates[single] = 0;
+        }
+    }
     if (t[se].checked == true) {
-        // alert("你选择的标签是tag" + (i + 1));
-        haha(se + 1, true);
+        tagStates[se] = 1;
     }
     else {
-        // alert("你没有选择标签tag" + (i + 1));
-        haha(se + 1, false);
+        tagStates[se] = 0;
     }
 }
 //---------------------------------------------

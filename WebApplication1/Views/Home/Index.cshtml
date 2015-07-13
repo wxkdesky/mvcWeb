@@ -140,13 +140,15 @@
             type: "POST", url: "/Home/connect", data: {}, success: function (data) {
                 resolve(data, finalData);
                 //test
-              // document.getElementById("testP").innerHTML += finalData;
+                // document.getElementById("testP").innerHTML += finalData;
+                //首次进入，画出所有点
                 if (drawImageCondition == 1) {
                     cxt.drawImage(img, 0, 0, c.width, c.height);
                     for (var single in finalData) {
                         drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
                     }
                 }
+                    //等待tag数组被修改，一旦修改，显示的tag标签就会改变,需要注意，如果从数据库中得到的个数和tagsates不一致，需要进行异常处理或者设定defalut
                 else if (drawImageCondition != 1) {
                     cxt.drawImage(img, 0, 0, c.width, c.height);
                     for (var single = 0; single < tagStates.length; single++) {//
