@@ -141,7 +141,7 @@
                 resolve(data, finalData);
                 //test
                 // document.getElementById("testP").innerHTML += finalData;
-                //首次进入，画出所有点
+                //首次进入，画出所有点（可以在此处进行tagstates的初始化）
                 if (drawImageCondition == 1) {
                     cxt.drawImage(img, 0, 0, c.width, c.height);
                     for (var single in finalData) {
@@ -153,7 +153,14 @@
                     cxt.drawImage(img, 0, 0, c.width, c.height);
                     for (var single = 0; single < tagStates.length; single++) {//
                         if (tagStates[single] == 1)
-                            drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
+                        {
+                            //如果tagStates和数据库读取内容一致，则显示，否则认为数据库没有这个tag，则跳过
+                            for (var fi = 0; fi < finalData.length; fi++) {
+                                if ((single+1) ==parseInt(finalData[fi][0]))
+                                    drawPoint(finalData[fi][0], finalData[fi][1], finalData[fi][2]);
+                            }
+                        }
+                            //drawPoint(finalData[single][0], finalData[single][1], finalData[single][2]);
                     }
                 }
             }, error: function (msg) { alert(msg) }

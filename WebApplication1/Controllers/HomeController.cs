@@ -68,7 +68,7 @@ namespace WebApplication1.Controllers
             {
                 infor = "连接mysql失败";
             }
-            mycomm = new MySqlCommand("SELECT * FROM positiontable WHERE sequence=(SELECT MAX(sequence) from positiontable WHERE tag='1') OR sequence=(SELECT MAX(sequence) from positiontable WHERE tag='2')", myconn);
+            mycomm = new MySqlCommand("SELECT * FROM positiontable WHERE sequence=(SELECT MAX(sequence) from positiontable WHERE tag='1') OR sequence=(SELECT MAX(sequence) from positiontable WHERE tag='2') OR sequence=(SELECT MAX(sequence) from positiontable WHERE tag='3') OR sequence=(SELECT MAX(sequence) from positiontable WHERE tag='4') OR sequence=(SELECT MAX(sequence) from positiontable WHERE tag='5')", myconn);
             myreader = mycomm.ExecuteReader();
             while (myreader.Read())
             {
