@@ -72,7 +72,7 @@ namespace WebApplication1.Controllers
             myreader = mycomm.ExecuteReader();
             while (myreader.Read())
             {
-                Transfer += myreader["tag"] + ";" + myreader["positionX"] + ";" + myreader["positionX"] + ";" + myreader["sequence"] + ";" + "n";
+                Transfer += myreader["tag"] + ";" + myreader["positionX"] + ";" + myreader["positionY"] + ";" + myreader["sequence"] + ";" + "n";
             }
             myreader.Close();
             myconn.Close();

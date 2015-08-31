@@ -7,7 +7,7 @@ var cxt = c.getContext("2d");
 cxt.strokeStyle = "#00f";
 cxt.fillStyle = "#FFFFFF";
 var img = new Image();
-img.src = "/Images/3.jpg";
+img.src = "/Images/f2.jpg";
 var MyInterval = null;
 //function haha(x, y) {
 //    if (y == true) {
@@ -56,7 +56,7 @@ function drawPoint(x,pX,pY)
     else if (x == "3") {
         //cxt.drawImage(img, 0, 0, c.width, c.height);
         //cxt.strokeStyle = "#00f";
-        cxt.fillStyle = "#FF00FF";
+        cxt.fillStyle = "#EA0000";//red
         //cxt.strokeRect(0, 0, c3.width, c3.height);
         cxt.beginPath();
         cxt.arc(pX, pY, 5, 0, Math.PI * 2, false);
@@ -66,7 +66,7 @@ function drawPoint(x,pX,pY)
     else if (x == "4") {
         //cxt.drawImage(img, 0, 0, c.width, c.height);
         //cxt.strokeStyle = "#00f";
-        cxt.fillStyle = "#E800E8";
+        cxt.fillStyle = "#E800E8";//pink
         //cxt.strokeRect(0, 0, c3.width, c3.height);
         cxt.beginPath();
         cxt.arc(pX, pY, 5, 0, Math.PI * 2, false);
@@ -76,7 +76,7 @@ function drawPoint(x,pX,pY)
     else if (x == "5") {
         //cxt.drawImage(img, 0, 0, c.width, c.height);
         //cxt.strokeStyle = "#00f";
-        cxt.fillStyle = "#01814A";
+        cxt.fillStyle = "#F9F900";//yellow
         //cxt.strokeRect(0, 0, c3.width, c3.height);
         cxt.beginPath();
         cxt.arc(pX, pY, 5, 0, Math.PI * 2, false);
